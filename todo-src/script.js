@@ -12,7 +12,10 @@ myApp.controller('MainCtrl', function ($scope){
 
   $scope.warningText = "";             //Text that displays any warnings
                                        //if the user performs an illegal
-                                       //action.        
+                                       //action.  
+
+  $scope.completeItems = [false, false];
+
   $scope.counter = 2;
   
   $scope.addItem = function(){
@@ -20,6 +23,8 @@ myApp.controller('MainCtrl', function ($scope){
     if ($scope.newItem !== ""){
       if($scope.todos.indexOf($scope.newItem) == -1){
         $scope.todos.push($scope.newItem);
+        $scope.todosEditor.push(false);
+        $scope.completeItems.push(false);
         $scope.newItem = ""; //Clearing Input Box
         $scope.warningText = ""; //Get rid of error message.
         $scope.counter += 1;
@@ -36,6 +41,8 @@ myApp.controller('MainCtrl', function ($scope){
     console.log("in delete");
     var index = $scope.todos.indexOf(item);
     $scope.todos.splice(index, 1);
+    $scope.completeItems.splice(index, 1);
+    $scope.todosEditor.splice(index, 1);
     $scope.counter -=1;
   }
 
@@ -85,8 +92,6 @@ myApp.controller('MainCtrl', function ($scope){
       
     }
   }
-  
-  $scope.completeItems = [false, false];
 
   $scope.completeItem = function(item){
     var index = $scope.todos.indexOf(item);
