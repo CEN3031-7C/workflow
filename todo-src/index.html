@@ -7,6 +7,7 @@
     <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+    <title> To Do List- 7C</title>
   </head>
 
   <body ng-app="app">
@@ -19,8 +20,10 @@
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" ng-click="addItem()">
               Add
-			
-			  </button>
+	          </button>
+            <button class="btn btn-default" type="button" ng-click="clearComplete()">
+              Clear Completed
+            </button>
               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
           </span>
         </div><!-- /input-group -->
@@ -39,7 +42,7 @@
             <span class="glyphicon glyphicon-trash " aria-hidden="true"></span>
           </button>
 
-          <button type="button" class="btn btn-primary pull-right" style="margin-left: 10px" ng-click="completeItem(do)" ng-show="!completeItems[$index]">
+          <button type="button" class="btn btn-primary pull-right" style="margin-right:5px" ng-click="completeItem(do)" ng-show="!completeItems[$index]">
               <span class="glyphicon glyphicon-check " aria-hidden="true"></span>
           </button>
           <span class="glyphicon glyphicon-check " aria-hidden="true" ng-show="completeItems[$index]"></span>
@@ -63,6 +66,7 @@
             </input>
 
           </form>
+          
           <div class="pull-right">
 			  <select>
 				<option value="NOW">NOW</option>
@@ -71,6 +75,7 @@
 				<option value="Another Day">Another Day</option>
 			</select> 
 		</div>
+
 
         </li>
       </ul>

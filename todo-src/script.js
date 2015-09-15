@@ -97,6 +97,21 @@ myApp.controller('MainCtrl', function ($scope){
     var index = $scope.todos.indexOf(item);
     $scope.completeItems[index] = true;
   }
+
+  /* The following function iterates through the
+     completeItems array and if element is equal 
+     to true it calls delete item on that element 
+     in the todos array.*/
+  $scope.clearComplete = function(){ 
+    var i = 0; // initialize i
+    while(i < $scope.counter){
+      if($scope.completeItems[i] == true){
+        $scope.deleteItem($scope.todos[i]);
+        continue; // return to beginning of while loop
+      }
+      i++;
+    }
+  }
   
 });
 
