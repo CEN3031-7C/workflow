@@ -123,6 +123,3 @@ myApp.controller('MainCtrl', function ($scope){
  * - add reminder (setInterval)
  * 
  * *********************/
- * - add reminder (setInterval)
- * 
- * *********************/
