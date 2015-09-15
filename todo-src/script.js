@@ -103,10 +103,13 @@ myApp.controller('MainCtrl', function ($scope){
      to true it calls delete item on that element 
      in the todos array.*/
   $scope.clearComplete = function(){ 
-    for(var i = 0; i < $scope.counter; i++){
+    var i = 0; // initialize i
+    while(i < $scope.counter){
       if($scope.completeItems[i] == true){
         $scope.deleteItem($scope.todos[i]);
+        continue; // return to beginning of while loop
       }
+      i++;
     }
   }
   
